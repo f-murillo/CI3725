@@ -1,10 +1,10 @@
-Etapa 3 del proyecto
+# Etapa 3 - Análisis de Contexto
 
-Giacomo Tosone - 1411085  
-Franco Murillo - 1610782  
+## Ejecución del programa
 
-----------------------------------------------------------------------------------------------------------
-
-Ejecución del programa
-
+```
 python context_analizer.py programa.imperat
+```
+Las pruebas se encuentran en la carpeta "CasosDePrueba":
+  - En la carpeta "Tests" están los programas de prueba
+  - En la carpeta "Out" están las salidas esperadas para cada programa
