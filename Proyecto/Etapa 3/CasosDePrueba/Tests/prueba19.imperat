@@ -1,0 +1,8 @@
+{
+   int a;
+   bool isTrue;
+   function[..3] A, B;
+
+   // ejemplo de funcion indexada por algo distinto de entero
+   a := A.true+0
+}

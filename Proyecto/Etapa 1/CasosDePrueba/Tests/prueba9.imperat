@@ -1,0 +1,4 @@
+{
+   // No se puede escapar caracteres que no sean \, n o "
+   print "Tratando de escapar una b \b"
+} 

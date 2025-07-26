@@ -1,0 +1,7 @@
+{
+    int a, b, c;
+    function[..2] d, e, f;
+    a := b + 3;
+    print e 
+    // Esto es un comentario. Debe ser ignorado.
+} 

@@ -1,0 +1,7 @@
+{
+    bool a;
+    int i;
+    function[..4] A;
+
+    a := true or false or !a==!true and false
+}

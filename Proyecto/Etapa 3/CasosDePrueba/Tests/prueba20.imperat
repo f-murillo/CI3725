@@ -1,0 +1,7 @@
+{
+   int a;
+   bool isTrue;
+   function[..3] A, B;
+
+   a := A.2+-B.1*A(2:3).2
+}

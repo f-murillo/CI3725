@@ -1,0 +1,8 @@
+{
+   int a;
+   bool isTrue;
+   function[..3] A, B;
+
+   // ejemplo de uso del operador de modificacion de funciones con un argumento que no es un entero
+   a := A.2+-B.1*A(2:B).2
+}

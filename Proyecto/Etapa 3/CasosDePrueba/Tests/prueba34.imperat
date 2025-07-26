@@ -1,0 +1,8 @@
+{
+    function[..2] _A;
+
+    // ejemplo de variable no declarada a la izquierda con una escritura de funcion a la derecha
+    B := _A(0:2);
+    print "First: " + _A.0 + "\nSecond: " + _A.1 + "\nThird: " + _A.2
+    // Esto es un comentario. Debe ser ignorado.
+} 

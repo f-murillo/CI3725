@@ -1,0 +1,42 @@
+{
+  int a, b, i;
+  function[..3] x, y;
+
+  // iterar entre a y b
+  a := -1;
+  b := 4;
+  x := x(0:a)(1:b);
+  i:=a;
+  while i <= b-a -->
+      print "Variable \"i\" es igual a: " + i;
+      i:=i+1
+  end;
+
+  // iterar sobre la segunda funcion
+  y := 1, -1, 2, -2;
+  i:=0;
+  while i <= 3 -->
+      print i + ":" + y.i + " ";
+      i:=i+1
+  end;
+
+  a := 3 + b;
+  b := -4;
+
+  if 2 <= b and b <= 5 and true--> print b
+  [] y.2 < b and b < y.2 --> print a
+  [] y.3 >= b or b >= y.3 --> 
+     {
+        function[..1] z;
+        print a + b;
+        z := z(0:a)(1:b);
+        print "function[" + z.2 + ".." + z.3 + "]"
+     }
+  fi;
+
+  i := 3;
+  while i < 10 -->
+      print "Still here!";
+      i := i+1
+  end
+}

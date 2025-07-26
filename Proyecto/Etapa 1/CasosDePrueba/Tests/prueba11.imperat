@@ -1,0 +1,8 @@
+{
+   // Prueba de signos
+   int a;
+
+   a := 22 +-3;
+   a := a --1;
+   a := a +(-1)
+}

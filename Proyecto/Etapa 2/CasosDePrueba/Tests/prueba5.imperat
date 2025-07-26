@@ -1,0 +1,16 @@
+{
+    int max_, _;
+    function[..5] A;
+
+    max_ := A.0;
+    _ := 1;
+    while _ <= 5  -->
+       if max_ < A._ -->
+          max_ := A._
+       [] max_ >= A._ -->
+          skip
+       fi;
+       _ := _ + 1
+    end
+    // Esto es un comentario. Debe ser ignorado.
+} 

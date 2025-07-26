@@ -1,0 +1,9 @@
+{
+  int a, b, i;
+  function[..5] y;
+
+  // ejemplo de variable no declarada de tipo function que se intenta escribir y asignar
+  a := -1;
+  b := 4;
+  y := x(2:a)(3:b)
+}

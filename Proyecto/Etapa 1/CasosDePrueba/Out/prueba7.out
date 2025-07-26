@@ -1,0 +1,21 @@
+TkOBlock 1 1
+TkFunction 2 5
+TkOBracket 2 13
+TkSoForth 2 14
+TkNum(2) 2 16
+TkCBracket 2 17
+TkId("_F") 2 19
+TkSemicolon 2 21
+TkId("_F") 4 5
+TkAsig 4 8
+TkNum(1) 4 11
+TkComma 4 12
+TkNum(2) 4 14
+TkComma 4 15
+TkNum(4) 4 17
+TkSemicolon 4 18
+TkPrint 5 5
+TkString("First: \" + _F.0 +  ") 5 11
+TkPlus 5 34
+TkString("Second: ") 5 36
+TkCBlock 7 1

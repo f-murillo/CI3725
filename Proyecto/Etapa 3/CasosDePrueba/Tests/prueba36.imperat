@@ -1,0 +1,8 @@
+{
+   int a;
+   bool isTrue;
+   function[..3] A, B;
+
+   // ejemplo de indexaccion de variable que no es de tipo funcion
+   a := a.2+0
+}

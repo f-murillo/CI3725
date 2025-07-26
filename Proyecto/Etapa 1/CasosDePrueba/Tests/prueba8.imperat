@@ -1,0 +1,4 @@
+{
+   print "Hola mundo. \n" + "Esto es un slash \\"
+   // Esto es un comentario. Debe ser ignorado.//
+} 

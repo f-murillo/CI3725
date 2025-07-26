@@ -1,0 +1,10 @@
+{
+  int a, i;
+  bool t;
+  function[..5] x, y;
+
+  a := -1;
+
+  // ejemplo de uso del operador de modificacion de funciones con argumentos no enteros
+  x := x(t:a)(1:a)
+}

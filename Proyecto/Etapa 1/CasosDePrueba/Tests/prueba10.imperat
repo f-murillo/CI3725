@@ -1,0 +1,4 @@
+{
+   // Prueba de escapado de \, " y probando salto de linea
+   print "Escapando slash \\" + "Escapando comillas \"" + "Agregando salto de linea \n"
+}

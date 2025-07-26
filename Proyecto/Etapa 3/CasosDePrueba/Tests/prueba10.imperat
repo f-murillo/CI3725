@@ -1,0 +1,10 @@
+{
+    int a, b, c;
+    bool d, e, f;
+    function[..4] A;
+
+    a := b+2*3 - -3*2;
+    d := false;
+    A := A(2+a:b).2 <= -b;
+    print "\"hola mundo \" \n" + 3 + A(2+a:b).2
+}

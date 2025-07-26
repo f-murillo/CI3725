@@ -1,0 +1,5 @@
+{
+    bool a, b, c;
+    int d;
+    a := a or b or !d==!a and b and a or b
+}

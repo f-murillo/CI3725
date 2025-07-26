@@ -1,0 +1,15 @@
+{
+    int a, b, c;
+    function[..2] d, e, f;
+
+    // ejemplo de guardia que no es booleana
+    while b + 3 -->
+     if true -->
+       a := b + 3
+     [] b < 4 -->
+       a := 0
+     fi
+    end;
+    print e 
+    // Esto es un comentario. Debe ser ignorado.
+} 

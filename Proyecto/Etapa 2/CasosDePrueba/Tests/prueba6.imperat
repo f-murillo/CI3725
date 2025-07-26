@@ -1,0 +1,7 @@
+{
+    function[..2] _A;
+
+    _A := 1, 2, 4;
+    print "First: " + _A.0 + "\nSecond: " + _A.1 + "\nThird: " + A.2
+    // Esto es un comentario. Debe ser ignorado.
+} 

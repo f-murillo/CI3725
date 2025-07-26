@@ -1,0 +1,8 @@
+{
+    int a, b, c;
+    function[..2] d, e, f;
+
+    // ejemplo de variable no declarada a la izquierda de una asignacion
+    g := b + 3;
+    print e 
+} 

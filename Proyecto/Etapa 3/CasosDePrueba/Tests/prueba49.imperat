@@ -1,0 +1,8 @@
+{
+    bool a;
+    int i;
+    function[..4] A;
+
+    // ejemplo de asignacion de objetos con tipos distintos
+    A := true or false or !a==!true and false
+}

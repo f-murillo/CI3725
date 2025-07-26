@@ -1,0 +1,5 @@
+{
+    bool a;
+    // ejemplo de variable no declarada de tipo booleano en operacion unaria
+    a := true or false or !b==!true and false and false or false
+}

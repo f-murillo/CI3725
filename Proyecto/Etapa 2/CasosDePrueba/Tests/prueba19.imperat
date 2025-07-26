@@ -1,0 +1,7 @@
+{
+   int a;
+   bool isTrue;
+   function[..3] A, B;
+
+   a := 0
+}

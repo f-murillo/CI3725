@@ -1,0 +1,24 @@
+{
+   int min, max;
+    function[..2] A;
+    if A.0 < A.1 and A.1 < A.2 -->
+       min := A.0;
+       max := A.2
+    [] A.0 < A.2 and A.2 < A.1 -->
+       min := A.0;
+       max := A.1
+    [] A.1 < A.0 and A.0 < A.2 -->
+       min := A.1;
+       max := A.2
+    [] A.1 < A.2 and A.2 < A.0 -->
+       min := A.1;
+       max := A.0
+    [] A.2 < A.0 and A.0 < A.1 -->
+       min := A.2;
+       max := A.1
+    [] A.2 < A.1 and A.1 < A.0 -->
+       min := A.2;
+       max := A.0
+    fi
+    // Esto es un comentario. Debe ser ignorado.
+}

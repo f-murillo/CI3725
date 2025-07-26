@@ -1,0 +1,9 @@
+{
+   int a;
+   bool isTrue;
+   function[..3] B;
+
+   // ejemplo de variable de tipo function no declarada asignandose
+   B := A
+   
+}

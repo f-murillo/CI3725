@@ -1,0 +1,8 @@
+{
+    function[..0] _A;
+
+    // ejemplo de asignacion de un entero a una funcion de longitud 1
+    _A := 3;
+    print "First: " + _A.0 + "\nSecond: " + _A.1 + "\nThird: " + _A.2
+    // Esto es un comentario. Debe ser ignorado.
+} 

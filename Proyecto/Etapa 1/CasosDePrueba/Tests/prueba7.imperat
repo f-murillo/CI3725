@@ -1,0 +1,7 @@
+{
+    function[..2] _F;
+
+    _F := 1, 2, 4;
+    print "First: \" + _F.0 +  " + "Second: "
+    // Esto es un comentario. Debe ser ignorado.//
+} 

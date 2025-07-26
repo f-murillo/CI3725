@@ -1,0 +1,4 @@
+{
+    bool a;
+    a := true or false or !true==!true and false and false or false
+}

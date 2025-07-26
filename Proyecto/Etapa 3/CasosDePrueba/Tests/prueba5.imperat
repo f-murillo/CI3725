@@ -1,0 +1,16 @@
+{
+    int max_, i;
+    function[..5] A;
+
+    max_ := A.0;
+    i := 1;
+    while i <= 5  -->
+       if max_ < A.i -->
+          max_ := A.i
+       [] max_ >= A.i -->
+          skip
+       fi;
+       i:=i+1
+    end
+    // Esto es un comentario. Debe ser ignorado.
+} 

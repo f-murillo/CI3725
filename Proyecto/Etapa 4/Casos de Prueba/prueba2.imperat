@@ -1,0 +1,13 @@
+{
+    int x;
+    int y;
+
+    // Imagine 'x' has some value already, let's say x := 10;
+    // For this example, we'll assign it a value directly:
+    x := 10; 
+
+    if x > 5 -->
+        y := 20;
+        x := x + 1
+    fi
+}

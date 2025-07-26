@@ -1,0 +1,27 @@
+{
+    int a, b, c, x;
+    bool d, e, f;
+    function[..3] A;
+    a := b+2*3 - -3*2;
+    d := false;
+    A := A(0+a:b).2 <= !!b;
+    print "\"hola mundo \" \n" + 3 + A(0+a:b).2;
+    while true -->
+      if true -->
+        d := false;
+        a := 2+3
+      [] false -->
+        a := 2+3
+      [] false -->
+        d := true or false
+      fi
+    end;
+    x := 2;
+    while x <= 5 -->
+    {
+      int a;
+      skip
+    }
+    end
+    // Esto es un comentario. Debe ser ignorado.
+}

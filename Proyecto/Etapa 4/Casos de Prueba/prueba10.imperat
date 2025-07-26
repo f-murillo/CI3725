@@ -1,0 +1,6 @@
+{
+    bool a;
+
+    // ejemplo de variable no declarada de tipo booleano en operacion binaria
+    a := false == true
+}

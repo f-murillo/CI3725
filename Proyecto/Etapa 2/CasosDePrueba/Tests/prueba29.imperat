@@ -1,0 +1,4 @@
+{
+    bool a, b, c;
+    a := (a<b or (b <> 10 or 2+3==4))and c>a and (c>=a or a<=b)
+}

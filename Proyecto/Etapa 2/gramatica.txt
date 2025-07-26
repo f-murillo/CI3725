@@ -1,0 +1,60 @@
+program      → block
+
+block        → TkOBlock declarations instructions TkCBlock
+
+declarations → declaration declarations
+             | λ
+
+declaration  → type id_list TkSemicolon
+
+type         → TkInt
+             | TkBool
+             | TkFunction TkOBracket TkSoForth TkNum TkCBracket
+
+id_list      → TkId
+             | TkId TkComma id_list
+
+instructions → instructions TkSemicolon instruction
+             | instruction
+
+instruction  → assignment
+             | print_stmt
+             | skip_stmt
+             | if_stmt
+             | while_stmt
+             | block
+
+assignment   → TkId TkAsig expr
+
+print_stmt   → TkPrint expr
+
+skip_stmt    → TkSkip
+
+if_stmt      → TkIf guard_list TkFi
+
+guard_list   → expr TkArrow instructions
+             | expr TkArrow instructions TkGuard guard_list
+
+while_stmt   → TkWhile expr TkArrow instructions TkEnd
+
+expr         → expr TkOr expr
+             | expr TkAnd expr
+             | expr TkLess expr
+             | expr TkLeq expr
+             | expr TkGreater expr
+             | expr TkGeq expr
+             | expr TkEqual expr
+             | expr TkNEqual expr
+             | expr TkPlus expr
+             | expr TkMinus expr
+             | expr TkMult expr
+             | expr TkApp expr
+             | expr TkOBracket expr TkTwoPoints expr TkCBracket
+             | TkNot expr
+             | TkMinus expr               (menos unario)
+             | TkOpenPar expr TkClosePar
+             | TkNum
+             | TkTrue
+             | TkFalse
+             | TkString
+             | TkId

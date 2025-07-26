@@ -1,0 +1,6 @@
+TkOBlock 1 1
+TkPrint 2 4
+TkString("Hola mundo. \n") 2 10
+TkPlus 2 27
+TkString("Esto es un slash \\") 2 29
+TkCBlock 4 1

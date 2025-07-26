@@ -1,0 +1,8 @@
+TkOBlock 1 1
+TkPrint 3 4
+TkString("Escapando slash \\") 3 10
+TkPlus 3 31
+TkString("Escapando comillas \"") 3 33
+TkPlus 3 57
+TkString("Agregando salto de linea \n") 3 59
+TkCBlock 4 1

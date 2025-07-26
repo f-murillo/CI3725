@@ -1,0 +1,8 @@
+{
+   int a;
+   {
+      int a, b;
+      int b;
+      a := 3
+   }
+}

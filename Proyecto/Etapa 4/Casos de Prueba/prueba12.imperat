@@ -1,0 +1,10 @@
+{
+    bool a, k, t;
+    k := true;
+    t := false;
+
+    // ejemplo de variable no declarada de tipo booleano en operacion binaria
+    if k == t --> a := false
+    [] k <> t --> a := true
+    fi
+}

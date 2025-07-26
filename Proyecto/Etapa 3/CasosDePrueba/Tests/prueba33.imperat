@@ -1,0 +1,8 @@
+{
+    function[..2] _A;
+
+    // ejemplo de variable no declarada a la izquierda de asignacion con una lista a la derecha
+    B := 1, 3, 4;
+    print "First: " + _A.0 + "\nSecond: " + _A.1 + "\nThird: " + _A.2
+    // Esto es un comentario. Debe ser ignorado.
+} 

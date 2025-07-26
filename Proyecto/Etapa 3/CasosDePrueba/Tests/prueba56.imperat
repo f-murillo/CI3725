@@ -1,0 +1,8 @@
+{
+    function[..2] _A;
+
+    // ejemplo de una lista no conformada por enteros
+    _A := 1, true, false;
+    print "First: " + _A.0 + "\nSecond: " + _A.1 + "\nThird: " + _A.2
+    // Esto es un comentario. Debe ser ignorado.
+} 

@@ -1,0 +1,10 @@
+{
+  int a, i;
+  bool t;
+  function[..5] x, y;
+
+  a := -1;
+
+  // ejemplo de asignacion de objetos con tipos distintos
+  t := y
+}
