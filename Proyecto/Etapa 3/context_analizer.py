@@ -1,5 +1,5 @@
 import sys
-from parse import parser          # tu parser de PLY
+from parse import parser          
 from ast_nodes import ContextError
 
 def main():
@@ -15,21 +15,20 @@ def main():
     # Lectura y chequeo lexico
     with open(filename, "r", encoding="utf-8") as f:
         data = f.read()
-    # 2) Parsear: si hay error léxico/sintáctico, tu parser ya lo habrá impreso y salido
+    # Parseamos
     ast = parser.parse(data)
 
-    # 3) Análisis de contexto: añade types y detecta usos/errores
+    # Analisis de contexto
     try:
         # El análisis arranca sin entorno padre
         ast.analyze(None)
     except ContextError as e:
-        # 4) Si hay error de contexto, lo reportas y terminas
+        # Si hay algun error de contexto
         print(e)
         sys.exit(1)
 
-    # 5) Si todo ok, imprimes el AST decorado
+    # Si todo esta ok, se imprime el AST decorado
     ast.pretty()
-
 
 if __name__ == "__main__":
     main()
