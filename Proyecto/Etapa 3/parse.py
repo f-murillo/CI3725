@@ -66,10 +66,9 @@ def p_type_bool(p):
 
 def p_type_func(p):
     "type : TkFunction TkOBracket TkSoForth TkNum TkCBracket"
-    # p[4] es el lexema numérico
     ln     = p.lineno(4)
     col    = find_column(p.lexer.lexdata, p.lexpos(4))
-    val    = int(p[4])
+    val    = int(p[4]) # p[4] es el lexema numerico
     p[0]  = TypeNode('function',
                      arg=val,
                      lineno=ln,
@@ -89,7 +88,7 @@ def p_skip(p):
     "skip_stmt : TkSkip"
     p[0] = Skip()
 
-# Secuenciación de instrucciones (izquierdo-asociativa)
+# Secuenciación de instrucciones (asociativa a la izquierda)
 def p_instructions(p):
     """instructions : instruction
                     | instructions TkSemicolon instruction"""
@@ -116,7 +115,7 @@ def p_assignment(p):
     lineno = p.lineno(1)
     lexpos = p.lexpos(1)
     column = find_column(p.lexer.lexdata, lexpos)
-    # Construyes el nodo Asig con id, expr, y datos de posición
+    # Se construye el nodo Asig con id, expr, y los datos de la posicion
     p[0] = Asig(p[1], p[3], lineno, column)
 
 # Print
@@ -147,7 +146,7 @@ def p_while(p):
 # Or y And
 def p_expr_or(p):
     "expr : expr TkOr expr"
-    # capturar posición del operador ‘or’
+    # Se captura la posicion del or
     lineno = p.lineno(2)
     lexpos = p.lexpos(2)
     column = find_column(p.lexer.lexdata, lexpos)
@@ -162,7 +161,7 @@ def p_expr_or(p):
 
 def p_expr_and(p):
     "expr : expr TkAnd expr"
-    # capturar posición del operador ‘and’
+    # Se captura la posición del and
     lineno = p.lineno(2)
     lexpos = p.lexpos(2)
     column = find_column(p.lexer.lexdata, lexpos)
@@ -175,7 +174,7 @@ def p_expr_and(p):
         column=column
     )
 
-# Operadores lógicos y relacionales
+# Operadores logicos y relacionales
 def p_expr_rel(p):
     """
     expr : expr TkLess expr
@@ -190,7 +189,7 @@ def p_expr_rel(p):
         '>': 'Greater', '>=': 'Geq',
         '==': 'Equal', '<>': 'NotEqual'
     }
-    # Capturamos línea y columna del operador
+    # Capturamos la linea y columna del operador
     lineno = p.lineno(2)
     lexpos = p.lexpos(2)
     column = find_column(p.lexer.lexdata, lexpos)
@@ -203,7 +202,7 @@ def p_expr_rel(p):
         column=column
     )
 
-# Operadores aritméticos
+# Operadores aritmeticos
 def p_expr_arith(p):
     """
     expr : expr TkPlus expr
@@ -211,7 +210,7 @@ def p_expr_arith(p):
          | expr TkMult expr
     """
     op_map = {'+': 'Plus', '-': 'Minus', '*': 'Mult'}
-    # Capturamos línea y columna del operador
+    # Capturamos la linea y columna del operador
     lineno = p.lineno(2)
     lexpos = p.lexpos(2)
     column = find_column(p.lexer.lexdata, lexpos)
@@ -245,14 +244,12 @@ def p_paren(p):
     "expr : TkOpenPar expr TkClosePar"
     p[0] = p[2]
 
-# Literales (números, booleanos y strings) con posición (lineno, column)
-
+# -------- Literales (numeros, booleanos y strings) ---------
 def p_expr_num(p):
     "expr : TkNum"
     lineno = p.lineno(1)
     lexpos = p.lexpos(1)
     column = find_column(p.lexer.lexdata, lexpos)
-    # si p[1] es string, haz int(p[1]) aquí; si ya es int, déjalo
     p[0] = Literal(p[1], lineno=lineno, column=column)
 
 def p_expr_true(p):
@@ -289,13 +286,13 @@ def p_expr_app(p):
     lexpos = p.lexpos(2)
     column = find_column(p.lexer.lexdata, lexpos)
     p[0] = App(
-        p[1],        # función o expresión de función
-        p[3],        # expresión índice
+        p[1],        # funcion o expresion de funcion
+        p[3],        # expresion indice
         lineno=lineno,
         column=column
     )
 
-# Modificar funcion
+# Modificacion de funcion
 def p_expr_mod(p):
     "expr : expr TkOBracket expr TkTwoPoints expr TkCBracket"
     p[0] = FuncModify(p[1], p[3], p[5])
@@ -307,13 +304,13 @@ def p_expr_comma(p):
     lexpos = p.lexpos(2)
     column = find_column(p.lexer.lexdata, lexpos)
 
-    # construimos el BinOp con posición
+    # construimos la operacion binaria
     p[0] = BinOp("Comma", p[1], p[3], lineno=lineno, column=column)
     
 # Escrbibir funcion    
 def p_expr_writefunc(p):
     """expr : expr TkOpenPar expr TkTwoPoints expr TkClosePar"""
-    # p[1] es la función, p[3] es el índice, p[5] el nuevo valor
+    # p[1] es la función, p[3] es el indice, y p[5] es el nuevo valor
     lineno = p.lineno(2)
     column = find_column(p.lexer.lexdata, p.lexpos(2))
     p[0] = FuncInit(
@@ -324,7 +321,6 @@ def p_expr_writefunc(p):
     )
 
 # ------------------ Manejo de errores sintacticos ---------------------------
-
 def p_error(p):
     if p:
         # sacamos el input directamente del lexer que trajo el token
@@ -333,7 +329,6 @@ def p_error(p):
     else:
         print("Sintax error: unexpected end of input.")
     sys.exit(1)
-
 
 # Construimos el parser
 parser = yacc.yacc()
