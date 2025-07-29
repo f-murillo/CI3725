@@ -88,7 +88,7 @@ def p_skip(p):
     "skip_stmt : TkSkip"
     p[0] = Skip()
 
-# Secuenciación de instrucciones (asociativa a la izquierda)
+# Secuenciacion de instrucciones (asociativa a la izquierda)
 def p_instructions(p):
     """instructions : instruction
                     | instructions TkSemicolon instruction"""
@@ -97,7 +97,7 @@ def p_instructions(p):
     else:
         p[0] = Sequencing(p[1], p[3])
 
-# Una instruccion puede ser asignacion, print, if, while o un bloque
+# Instrucciones. Una instruccion puede ser asignacion, print, if, while o un bloque
 def p_instruction(p):
     """
     instruction : assignment
@@ -310,7 +310,7 @@ def p_expr_comma(p):
 # Escrbibir funcion    
 def p_expr_writefunc(p):
     """expr : expr TkOpenPar expr TkTwoPoints expr TkClosePar"""
-    # p[1] es la función, p[3] es el indice, y p[5] es el nuevo valor
+    # p[1] es la funcion, p[3] es el indice, y p[5] es el nuevo valor
     lineno = p.lineno(2)
     column = find_column(p.lexer.lexdata, p.lexpos(2))
     p[0] = FuncInit(
@@ -323,7 +323,7 @@ def p_expr_writefunc(p):
 # ------------------ Manejo de errores sintacticos ---------------------------
 def p_error(p):
     if p:
-        # sacamos el input directamente del lexer que trajo el token
+        # sacamos el input directamente del lexer del token
         col = find_column(p.lexer.lexdata, p)
         print(f"Sintax error in row {p.lineno}, column {col}: unexpected token '{p.value}'.")
     else:
