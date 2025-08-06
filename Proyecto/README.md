@@ -1,4 +1,4 @@
-# Proyecto de Traductores
+# Proyecto de Traductores - Traductor de GCL a Lambda-Cálculo
 
 - El presente proyecto consistió en crear un __traductor__ de programas escritos en el lenguaje imperativo __GCL__, a __fórmulas del lenguaje Lambda-Cálculo__ que se puedan ejecutar en Python
 - El proyecto se dividió en __4 etapas__:
