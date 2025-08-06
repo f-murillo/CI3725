@@ -71,8 +71,7 @@ t_TkApp       = r'\.'  # Este se define despues de TkSoForth para evitar conflic
 def t_TkId(t):
     # Se reconoce una secuencia que inicia con una letra (mayus. o minus.), guion bajo, seguida de digitos, mas letras o guiones bajos
     r'[A-Za-z_][A-Za-z0-9_]*' 
-    # Se verifica si el valor reconocido esta en el diccionario de palabras reservadas
-    # Si lo esta, se asigna el token correspondiente; de lo contrario, se utiliza TkId
+    # Si el valor reconocido esta en el diccionario de palabras reservadas se asigna el token correspondiente; de lo contrario, se utiliza TkId
     t.type = reserved.get(t.value, 'TkId')
     return t
 
@@ -84,18 +83,17 @@ def t_TkNum(t):
 
 # Funcion que maneja las cadenas de caracteres encerradas en comillas.
 def t_TkString(t):
-    # La expresion regular reconoce lo siguiente:
+    # Se reconoce lo siguiente:
     # - Comienza y termina con comillas dobles ("")
     # - Dentro de la cadena se permite:
-    #   - [^"\\\n]: cualquier caracter que no sea ", \ o \n
-    #   - \\(?:[n"\\]): una secuencia de escape valida
+    #   - cualquier caracter que no sea ", \ o \n
+    #   - una secuencia de escape valida
     r'"(?:[^"\\\n]|\\(?:[n"\\]))*"'
-    # Se quitan las comillas de apertura y cierre para obtener el contenido
     s = t.value[1:-1]
     t.value = s
     return t
 
-# Caracteres a ignorar (espacios, tabuladores y retornos de carro). Estos caracteres no seran convertidos en tokens
+# Caracteres a ignorar. Estos caracteres no seran convertidos en tokens
 t_ignore = " \t\r"
 
 # Funcion que maneja los saltos de linea
@@ -109,13 +107,12 @@ def t_comment(t):
     r'//.*' 
     pass
 
-# Lista para almacenar los errores lexicos que se vayan encontrando
-errors = []
+errors = [] # Para almacenar los errores lexicos que se vayan encontrando
 
 # Funcion auxiliar para calcular la columna de un token
+# Se utiliza la posicion inicial del token y se busca la posicion de la ultima
+# nueva linea ('\n') anterior a ese token en la entrada completa
 def find_column(input, token):
-    # Se utiliza la posicion inicial del token y se busca la posicion de la ultima
-    # nueva linea ('\n') anterior a ese token en la entrada completa
     last_cr = input.rfind('\n', 0, token.lexpos)
     if last_cr < 0:
         last_cr = -1  # Si no se encuentra, significa que el token esta en la primera linea
@@ -124,8 +121,7 @@ def find_column(input, token):
 
 # Funcion para reportar errores lexicos
 def t_error(t):
-    # Se obtiene la columna donde aparece el error
-    col = find_column(t.lexer.lexdata, t)
+    col = find_column(t.lexer.lexdata, t) # Columna donde aparece el error
     msg = f'Error: Unexpected character "{t.value[0]}" in row {t.lineno}, column {col}'
     # Se imprime el mensaje de error, y se agrega el error a la lista de errores
     print(msg)
@@ -170,7 +166,7 @@ def main():
             break
         col = find_column(data, tok) # Ubicamos la columna de cada token 
         # Agregamos el token a la lista
-        if tok.type in ['TkId', 'TkNum', 'TkString']: # Los tokens que llevan atributo se almacenan con su valor
+        if tok.type in ['TkId', 'TkNum', 'TkString']: # Los tokens con atributo se almacenan con su valor
             token_list.append((tok.type, tok.lineno, col, tok.value))
         else:
             token_list.append((tok.type, tok.lineno, col))
